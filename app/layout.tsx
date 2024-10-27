@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Sibebar } from "@/components/sidebar";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,14 +19,16 @@ export default function RootLayout({
           inter.className
         )}
       >
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-        </ThemeProvider>
+        </ThemeProvider> */}
+
+        <Sibebar />
+        {children}
       </body>
     </html>
   );

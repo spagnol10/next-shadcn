@@ -2,9 +2,11 @@ import { Home, LogOut, Package, PanelBottom, Settings2, ShoppingBag, Users } fro
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { SidebarFooter } from "../ui/sidebar";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
 export function Sibebar() {
+ 
   return (
     <div className="flex w-full flex-col bg-muted/40">
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 border-r 
@@ -94,7 +96,7 @@ export function Sibebar() {
                   href="#"
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg 
                   text-muted-foreground transition-colors hover:text-foreground">
-                  <LogOut className="w-4 h-4 text-red-500"/>
+                  <LogOut className="w-4 h-4 text-red-500" />
                   <span className="sr-only">Settings</span>
                 </Link>
               </TooltipTrigger>
@@ -176,16 +178,18 @@ export function Sibebar() {
                 </Link>
               </nav>
 
-              <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-5">
-                <Link
-                  href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground
+              <SidebarFooter>
+                <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-5">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-4 px-2.5 text-muted-foreground
                   hover:text-foreground"
-                  prefetch={false}>
-                  <LogOut className="w-5 h-5 transition-all" />
-                  logOut
-                </Link>
-              </nav>
+                    prefetch={false}>
+                    <LogOut className="w-5 h-5 transition-all" />
+                    logOut
+                  </Link>
+                </nav>
+              </SidebarFooter>
             </SheetContent>
 
           </Sheet>

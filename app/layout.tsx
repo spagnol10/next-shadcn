@@ -1,7 +1,7 @@
-import { Sibebar } from "@/components/sidebar";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Sibebar } from "@/components/sidebar";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -25,7 +25,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
         </ThemeProvider> */}
-
+        {/* <Header /> */}
         <Sibebar />
         {children}
       </body>

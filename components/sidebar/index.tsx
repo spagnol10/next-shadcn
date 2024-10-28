@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
-import { Package, PanelBottom } from "lucide-react";
+import { Home, Package, PanelBottom, Settings2, ShoppingBag, Users } from "lucide-react";
 
 export function Sibebar() {
   return (
@@ -20,7 +20,7 @@ export function Sibebar() {
               </Button>
             </SheetTrigger>
 
-            <SheetContent className="sm:max-w-x">
+            <SheetContent side="left" className="sm:max-w-x">
               <nav className="grid gap-6 text-lg font-medium">
                 <Link
                   href="#"
@@ -31,9 +31,55 @@ export function Sibebar() {
                   <Package className="w-5 h-5 transition-all" />
                   <span className="sr-only">Logo</span>
                 </Link>
+
+                <Link
+                  href="#"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground
+                  hover:text-foreground"
+                  prefetch={false}>
+                  <Home className="w-5 h-5 transition-all" />
+                  Home
+                </Link>
+
+                <Link
+                  href="#"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground
+                  hover:text-foreground"
+                  prefetch={false}>
+                  <ShoppingBag className="w-5 h-5 transition-all" />
+                  Orders
+                </Link>
+
+                <Link
+                  href="#"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground
+                  hover:text-foreground"
+                  prefetch={false}>
+                  <Package className="w-5 h-5 transition-all" />
+                  Products
+                </Link>
+
+                <Link
+                  href="#"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground
+                  hover:text-foreground"
+                  prefetch={false}>
+                  <Users className="w-5 h-5 transition-all" />
+                  Clients
+                </Link>
+
+                <Link
+                  href="#"
+                  className="flex items-center gap-4 px-2.5 text-muted-foreground
+                  hover:text-foreground"
+                  prefetch={false}>
+                  <Settings2 className="w-5 h-5 transition-all" />
+                  Settings
+                </Link>
               </nav>
             </SheetContent>
           </Sheet>
+          <h2>Menu</h2>
         </header>
       </div>
     </div>

@@ -59,7 +59,7 @@ const data = {
       items: [
         {
           title: "Register",
-          url: "#",
+          url: "/products",
         },
         {
           title: "Update",
@@ -72,13 +72,13 @@ const data = {
       ],
     },
     {
-      title: "Models",
+      title: "Users",
       url: "#",
       icon: Bot,
       items: [
         {
           title: "Genesis",
-          url: "#",
+          url: "/users",
         },
         {
           title: "Explorer",
@@ -91,13 +91,13 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
+      title: "Suppliers",
       url: "#",
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Register",
+          url: "/suppliers",
         },
         {
           title: "Get Started",

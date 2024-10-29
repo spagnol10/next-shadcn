@@ -18,14 +18,14 @@ export default function RootLayout({
           inter.className
         )}
       >
-        <ThemeProvider
+        {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-        </ThemeProvider>
+        </ThemeProvider> */}
+        {children}
       </body>
     </html>
   );

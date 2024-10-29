@@ -1,5 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar"
 import { ChartOverview } from "@/components/chart"
+import { Chart } from "@/components/chart/pieChart"
 import Header from "@/components/header"
 import { Sales } from "@/components/sales"
 import {
@@ -101,8 +102,12 @@ export default function Page() {
             </div>
             <div className="mt-4 flex flex-col md:flex-row gap-4">
               <ChartOverview />
+              <Chart />
+            </div>
+            <div className="mt-4 flex flex-col md:flex-row gap-4">
               <Sales />
             </div>
+
           </div>
         </SidebarInset>
       </SidebarProvider >

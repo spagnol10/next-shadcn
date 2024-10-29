@@ -6,7 +6,7 @@ import { SidebarFooter } from "../ui/sidebar";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
 export function Sibebar() {
- 
+
   return (
     <div className="flex w-full flex-col bg-muted/40">
       <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 border-r 
@@ -191,7 +191,6 @@ export function Sibebar() {
                 </nav>
               </SidebarFooter>
             </SheetContent>
-
           </Sheet>
         </header>
       </div>

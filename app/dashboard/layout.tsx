@@ -1,8 +1,5 @@
-import { ReactNode } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import Header from "@/components/header";
-import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
-import { Separator } from "@/components/ui/separator";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,8 +8,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { ReactNode } from "react";
 import "../globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 
 interface RootLayoutProps {
   children: ReactNode;

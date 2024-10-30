@@ -2,7 +2,6 @@
 
 import {
   AudioWaveform,
-  BookOpen,
   Command,
   Frame,
   GalleryVerticalEnd,
@@ -16,9 +15,9 @@ import {
 } from "lucide-react"
 import * as React from "react"
 
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavUser } from "@/components/nav-user"
+import { NavMain } from "@/components/nav/nav-main"
+import { NavProjects } from "@/components/nav/nav-projects"
+import { NavUser } from "@/components/nav/nav-user"
 import { TeamSwitcher } from "@/components/team-switcher"
 import {
   Sidebar,
@@ -76,14 +75,6 @@ const data = {
           title: "Register",
           url: "/dashboard/products/register",
         },
-        {
-          title: "Update",
-          url: "/dashboard/products/update",
-        },
-        {
-          title: "See",
-          url: "/dashboard/products",
-        },
       ],
     },
     {
@@ -95,14 +86,6 @@ const data = {
           title: "Register",
           url: "/dashboard/users/register",
         },
-        {
-          title: "Explorer",
-          url: "/dashboard/users/update",
-        },
-        {
-          title: "See",
-          url: "/dashboard/users",
-        },
       ],
     },
     {
@@ -113,41 +96,6 @@ const data = {
         {
           title: "Register",
           url: "/suppliers",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Suppliers",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Register",
-          url: "/suppliers",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
         },
       ],
     },
@@ -169,8 +117,8 @@ const data = {
           url: "#",
         },
         {
-          title: "Limits",
-          url: "#",
+          title: "Account",
+          url: "/dashboard/settings/account",
         },
       ],
     },

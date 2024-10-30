@@ -6,7 +6,6 @@ import { UserTable } from "./app-userTable";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 
-// Define the User type
 interface User {
   id: number;
   name: string;
@@ -15,7 +14,6 @@ interface User {
   imageUrl: string;
 }
 
-// Mock user data
 const initialUsers: User[] = [
   { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", imageUrl: "/placeholder.svg?height=40&width=40" },
   { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", imageUrl: "/placeholder.svg?height=40&width=40" },

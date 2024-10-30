@@ -12,7 +12,7 @@ export function Register() {
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
-        <CardTitle className="text-3xl">Register</CardTitle>
+        <CardTitle className="text-3xl">Sign up</CardTitle>
         <CardDescription>Enter your information to create an account</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">

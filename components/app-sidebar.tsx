@@ -1,19 +1,20 @@
 "use client"
 
-import * as React from "react"
 import {
   AudioWaveform,
   BookOpen,
-  Bot,
   Command,
   Frame,
   GalleryVerticalEnd,
+  Home,
   Map,
   Package,
   PieChart,
   Settings2,
-  SquareTerminal,
+  TruckIcon,
+  Users
 } from "lucide-react"
+import * as React from "react"
 
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
@@ -51,12 +52,25 @@ const data = {
       plan: "Free",
     },
   ],
+
+
   navMain: [
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: Home,
+      items: [
+        {
+          title: "Home",
+          url: "/dashboard",
+        },
+      ]
+    },
     {
       title: "Products",
       url: "/dashboard/",
       icon: Package,
-      isActive: true,
+      isActive: false,
       items: [
         {
           title: "Register",
@@ -68,14 +82,14 @@ const data = {
         },
         {
           title: "See",
-          url: "/dashboard/see",
+          url: "/dashboard/products",
         },
       ],
     },
     {
       title: "Users",
       url: "#",
-      icon: Bot,
+      icon: Users,
       items: [
         {
           title: "Register",
@@ -94,7 +108,7 @@ const data = {
     {
       title: "Suppliers",
       url: "#",
-      icon: BookOpen,
+      icon: TruckIcon,
       items: [
         {
           title: "Register",

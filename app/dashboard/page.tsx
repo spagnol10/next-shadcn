@@ -2,11 +2,10 @@ import { ChartOverview } from "@/components/chart";
 import { Chart } from "@/components/chart/pieChart";
 import { AppChart } from "@/components/dashboard/chart/app-chart";
 import { Sales } from "@/components/sales";
-import ShoppingCart from "@/components/shoppingCart/shopping-cart";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DollarSign, Percent, Users } from "lucide-react";
 
-export default function Page() {
+export default function DashBoard() {
   const totalSales = "R$40.000,00";
   const totalClients = 327;
   const ordersTodayPercentage = "31%";
@@ -51,13 +50,13 @@ export default function Page() {
           </CardContent>
         </Card>
       </div>
+      <div className="mt-4 grid gap-4">
+        <ChartOverview />
+      </div>
       <div className="mt-4 grid gap-4 md:grid-cols-3">
         <AppChart />
         <Chart />
         <Sales />
-      </div>
-      <div className="mt-4 grid gap-4">
-        <ChartOverview />
       </div>
     </>
   );

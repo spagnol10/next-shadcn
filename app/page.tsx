@@ -1,9 +1,9 @@
-import HomeScreen from "./dashboard/page";
+import Login from "./auth/login/page";
 
 export default function Home() {
   return (
     <>
-      <HomeScreen />
+      <Login />
     </>
   );
 }

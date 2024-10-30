@@ -46,15 +46,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               </div>
             </header>
             <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-              <div>
-                <ThemeProvider
-                  attribute="class"
-                  defaultTheme="system"
-                  enableSystem
-                  disableTransitionOnChange>
-                  {children}
-                </ThemeProvider>
-              </div>
+              {children}
             </div>
           </SidebarInset>
         </SidebarProvider>

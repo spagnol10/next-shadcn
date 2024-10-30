@@ -9,6 +9,7 @@ import {
   Frame,
   GalleryVerticalEnd,
   Map,
+  Package,
   PieChart,
   Settings2,
   SquareTerminal,
@@ -53,21 +54,21 @@ const data = {
   navMain: [
     {
       title: "Products",
-      url: "#",
-      icon: SquareTerminal,
+      url: "/dashboard/",
+      icon: Package,
       isActive: true,
       items: [
         {
           title: "Register",
-          url: "/products",
+          url: "/dashboard/products/register",
         },
         {
           title: "Update",
-          url: "#",
+          url: "/dashboard/products/update",
         },
         {
-          title: "Delete",
-          url: "#",
+          title: "See",
+          url: "/dashboard/see",
         },
       ],
     },
@@ -77,16 +78,16 @@ const data = {
       icon: Bot,
       items: [
         {
-          title: "Genesis",
-          url: "/users",
+          title: "Register",
+          url: "/dashboard/users/register",
         },
         {
           title: "Explorer",
-          url: "#",
+          url: "/dashboard/users/update",
         },
         {
-          title: "Quantum",
-          url: "#",
+          title: "See",
+          url: "/dashboard/users",
         },
       ],
     },

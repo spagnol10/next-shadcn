@@ -10,7 +10,7 @@ export default function Header() {
           <div className="w-full flex-1 md:w-auto md:flex-none">
             <div className="relative">
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input placeholder="Search" className="pl-8 md:w-[300px] lg:w-[300px]" />
+              <Input placeholder="Search" className="pl-8 md:w-[300px] lg:w-[300px] bg-gray-50 hover:bg-gray-100 " />
             </div>
           </div>
           <nav className="flex items-center space-x-4">

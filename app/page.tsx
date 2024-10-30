@@ -1,4 +1,4 @@
-import HomeScreen from "./home/page";
+import HomeScreen from "./dashboard/page";
 
 export default function Home() {
   return (

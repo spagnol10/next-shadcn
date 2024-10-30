@@ -29,57 +29,37 @@ export function Sales() {
             <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
           </div>
         </article>
+        <article className="flex items-center gap-2 border-b py-2">
+          <Avatar className="w-8 h-8">
+            <AvatarImage src="https://github.com/spagnol10.png" />
+            <AvatarFallback>WS</AvatarFallback>
+          </Avatar>
+          <div>
+            <p className="text-sm sm:text-base font-semibold">Developer</p>
+            <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
+          </div>
+        </article>
+        <article className="flex items-center gap-2 border-b py-2">
+          <Avatar className="w-8 h-8">
+            <AvatarImage src="https://github.com/spagnol10.png" />
+            <AvatarFallback>WS</AvatarFallback>
+          </Avatar>
+          <div>
+            <p className="text-sm sm:text-base font-semibold">Developer</p>
+            <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
+          </div>
+        </article>
+        <article className="flex items-center gap-2 border-b py-2">
+          <Avatar className="w-8 h-8">
+            <AvatarImage src="https://github.com/spagnol10.png" />
+            <AvatarFallback>WS</AvatarFallback>
+          </Avatar>
+          <div>
+            <p className="text-sm sm:text-base font-semibold">Developer</p>
+            <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
+          </div>
+        </article>
 
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://github.com/spagnol10.png" />
-            <AvatarFallback>WS</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Developer</p>
-            <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
-          </div>
-        </article>
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://github.com/spagnol10.png" />
-            <AvatarFallback>WS</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Developer</p>
-            <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
-          </div>
-        </article>
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://github.com/spagnol10.png" />
-            <AvatarFallback>WS</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Developer</p>
-            <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
-          </div>
-        </article>
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://github.com/spagnol10.png" />
-            <AvatarFallback>WS</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Developer</p>
-            <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
-          </div>
-        </article>
-        <article className="flex items-center gap-2 border-b py-2">
-          <Avatar className="w-8 h-8">
-            <AvatarImage src="https://github.com/spagnol10.png" />
-            <AvatarFallback>WS</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="text-sm sm:text-base font-semibold">Developer</p>
-            <span className="text-[12px] sm:text-sm">Developer@gmail.com</span>
-          </div>
-        </article>
       </CardContent>
 
     </Card>

@@ -31,7 +31,7 @@ const data = {
   user: {
     name: "Spagnol",
     email: "spagnol@example.com",
-    avatar: "https://github.com/spagnol10.png",
+    avatar: "https://github.com/shadcn.png",
   },
   teams: [
     {
@@ -86,6 +86,29 @@ const data = {
         },
         {
           title: "Quantum",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Suppliers",
+      url: "#",
+      icon: BookOpen,
+      items: [
+        {
+          title: "Register",
+          url: "/suppliers",
+        },
+        {
+          title: "Get Started",
+          url: "#",
+        },
+        {
+          title: "Tutorials",
+          url: "#",
+        },
+        {
+          title: "Changelog",
           url: "#",
         },
       ],

@@ -1,21 +1,45 @@
 'use client'
 
-import Link from "next/link"
-
-import { Button } from "@/components/ui/button"
+import React, { useState } from "react";
+import Link from "next/link";
+import axios from "axios";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useRouter } from 'next/navigation'
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
-  const router = useRouter()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(""); // Reset error state
+    setLoading(true); // Set loading state
+
+    try {
+      const response = await axios.post('/api/login', { email, password });
+      if (response.status === 200) {
+        router.push('/dashboard');
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      setError("Login failed. Please check your credentials and try again.");
+    } finally {
+      setLoading(false); // Reset loading state
+    }
+  };
+
   return (
     <div className="flex h-screen w-full items-center justify-center px-4">
       <Card className="mx-auto max-w-sm">
@@ -26,13 +50,15 @@ export default function Login() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4">
+          <form onSubmit={handleLogin} className="grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="email"
                 placeholder="m@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -43,16 +69,22 @@ export default function Login() {
                   Forgot your password?
                 </Link>
               </div>
-              <Input id="password" type="password" required />
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
-            <Button type="submit" className="w-full"
-              onClick={() => router.push('/dashboard')}>
-              Login
+            {error && <p className="text-red-500">{error}</p>} {/* Error message */}
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? 'Logging in...' : 'Login'}
             </Button>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" disabled={loading}>
               Login with Google
             </Button>
-          </div>
+          </form>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{""}
             <Link href="/auth/register" className="underline">
@@ -62,5 +94,5 @@ export default function Login() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

@@ -7,14 +7,21 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface User {
-  id: number;
+  id: string; // Alterado para string
   name: string;
   email: string;
   role: string;
   imageUrl: string;
+  cpfCnpj: string;
+  gender: "WOMAN" | "MAN" | "OTHER"; // Adicionado
+  password: string; // Adicionado
+  phoneNumber: string; // Adicionado
+  isActive: boolean; // Adicionado
+  dateOfBirth: string; // Adicionado
+  createdAt: string; // Adicionado
+  updatedAt: string; // Adicionado
 }
 
-// Update UserFormProps to accept null
 interface UserFormProps {
   onSubmit: (user: User) => void;
   initialData?: Partial<User> | null; // Allow null
@@ -23,11 +30,19 @@ interface UserFormProps {
 
 export function UserForm({ onSubmit, initialData = {}, onCancel }: UserFormProps) {
   const [user, setUser] = useState<User>({
-    id: 0,
+    id: "0",
     name: "",
     email: "",
-    role: "User",
+    cpfCnpj: "",
+    gender: "WOMAN", // Valor padrão
+    password: "",
+    phoneNumber: "",
     imageUrl: "/placeholder.svg?height=128&width=128",
+    isActive: true,
+    dateOfBirth: new Date().toISOString(),
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    role: "User",
     ...initialData,
   });
 
@@ -88,6 +103,47 @@ export function UserForm({ onSubmit, initialData = {}, onCancel }: UserFormProps
               type="email"
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="cpfCnpj">CPF/CNPJ</Label>
+            <Input
+              id="cpfCnpj"
+              value={user.cpfCnpj}
+              onChange={(e) => setUser({ ...user, cpfCnpj: e.target.value })}
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="gender">Gender</Label>
+            <Select value={user.gender} onValueChange={(value) => setUser({ ...user, gender: value as 'WOMAN' | 'MAN' | 'OTHER' })}>
+              <SelectTrigger id="gender">
+                <SelectValue placeholder="Select a gender" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="WOMAN">Woman</SelectItem>
+                <SelectItem value="MAN">Man</SelectItem>
+                <SelectItem value="OTHER">Other</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="phoneNumber">Phone Number</Label>
+            <Input
+              id="phoneNumber"
+              value={user.phoneNumber}
+              onChange={(e) => setUser({ ...user, phoneNumber: e.target.value })}
+              required
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">Password</Label>
+            <Input
+              id="password"
+              type="password"
+              value={user.password}
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
               required
             />
           </div>

@@ -1,79 +1,77 @@
 "use client";
 
-import { useState } from "react";
-import { UserTable } from "@/components/userManagement/app-userTable";
+import { useEffect, useState } from "react";
+import { UserTable } from "@/components/user/app-userTable";
 import { Plus } from "lucide-react";
-import { UserForm } from "@/components/userManagement/app-userForm";
+import { UserForm } from "@/components/user/app-userForm";
 import { Button } from "@/components/ui/button";
+import { fetchUsers, createUser, updateUser, deleteUser, User as UserType } from "../../../[axios]/api"; // Importando as funções
 
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  role: string;
-  imageUrl: string;
-}
+export default function RegisterNewUser() {
+    const [users, setUsers] = useState<UserType[]>([]);
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [currentUser, setCurrentUser] = useState<UserType | null>(null);
 
-const initialUsers: User[] = [
-  { id: 1, name: "John Doe", email: "john@example.com", role: "Admin", imageUrl: "/placeholder.svg?height=40&width=40" },
-  { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User", imageUrl: "/placeholder.svg?height=40&width=40" },
-];
+    useEffect(() => {
+        const loadUsers = async () => {
+            const usersData = await fetchUsers();
+            setUsers(usersData);
+        };
+        loadUsers();
+    }, []);
 
-export default function RegiterNewUser() {
-  const [users, setUsers] = useState<User[]>(initialUsers);
-  const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+    const addUser = async (newUser: Omit<UserType, "id" | "createdAt" | "updatedAt">) => {
+        const createdUser = await createUser(newUser);
+        setUsers([...users, createdUser]);
+    };
 
-  const addUser = (newUser: Omit<User, "id">) => {
-    const newId = users.length > 0 ? Math.max(...users.map(user => user.id)) + 1 : 1;
-    setUsers([...users, { ...newUser, id: newId }]);
-  };
+    const updateUserData = async (updatedUser: UserType) => {
+        const updated = await updateUser(updatedUser.id, updatedUser);
+        setUsers(users.map(user => user.id === updated.id ? updated : user));
+    };
 
-  const updateUser = (updatedUser: User) => {
-    setUsers(users.map(user => user.id === updatedUser.id ? updatedUser : user));
-  };
+    const deleteUserData = async (userId: string) => {
+        await deleteUser(userId);
+        setUsers(users.filter(user => user.id !== userId));
+    };
 
-  const deleteUser = (userId: number) => {
-    setUsers(users.filter(user => user.id !== userId));
-  };
+    const editUser = (user: UserType) => {
+        setCurrentUser(user);
+        setIsEditing(true);
+    };
 
-  const editUser = (user: User) => {
-    setCurrentUser(user);
-    setIsEditing(true);
-  };
-
-  return (
-    <div className="flex h-screen w-full ">
-      <div className="container mx-auto p-4 space-y-8">
-        <h1 className="text-3xl font-bold">User Management</h1>
-        {isEditing ? (
-          <UserForm
-            onSubmit={(user) => {
-              if (currentUser) {
-                updateUser(user);
-              } else {
-                addUser(user);
-              }
-              setIsEditing(false);
-              setCurrentUser(null);
-            }}
-            initialData={currentUser}
-            onCancel={() => {
-              setIsEditing(false);
-              setCurrentUser(null);
-            }}
-          />
-        ) : (
-          <Button onClick={() => setIsEditing(true)}>
-            <Plus className="mr-2 h-4 w-4" /> Add New User
-          </Button>
-        )}
-        <UserTable
-          users={users}
-          onEdit={editUser}
-          onDelete={deleteUser}
-        />
-      </div>
-    </div>
-  )
+    return (
+        <div className="flex h-screen w-full ">
+            <div className="container mx-auto p-4 space-y-8">
+                <h1 className="text-3xl font-bold">User Management</h1>
+                {isEditing ? (
+                    <UserForm
+                        onSubmit={(user) => {
+                            if (currentUser) {
+                                updateUserData(user);
+                            } else {
+                                addUser(user);
+                            }
+                            setIsEditing(false);
+                            setCurrentUser(null);
+                        }}
+                        initialData={currentUser}
+                        onCancel={() => {
+                            setIsEditing(false);
+                            setCurrentUser(null);
+                        }}
+                    />
+                ) : (
+                    <Button onClick={() => setIsEditing(true)}>
+                        <Plus className="mr-2 h-4 w-4" /> Add New User
+                    </Button>
+                )}
+                <UserTable
+                    users={users}
+                    onEdit={editUser}
+                    onDelete={deleteUserData}
+                />
+            </div>
+        </div>
+    );
 }

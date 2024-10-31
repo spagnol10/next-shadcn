@@ -10,20 +10,26 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Pencil, Trash2 } from "lucide-react";
 
-// Define the User type
 interface User {
-  id: number;
+  id: string; 
   name: string;
   email: string;
-  role: string;
-  imageUrl: string;
+  cpfCnpj: string; 
+  gender: 'WOMAN' | 'MAN' | 'OTHER'; 
+  password: string; 
+  phoneNumber: string;
+  imageUrl: string; 
+  isActive: boolean;
+  dateOfBirth: string;
+  createdAt: string;
+  updatedAt: string;
+  role: string; 
 }
 
-// Define the props type for UserTable
 interface UserTableProps {
   users: User[];
   onEdit: (user: User) => void;
-  onDelete: (userId: number) => void;
+  onDelete: (userId: string) => void; // Alterado para string
 }
 
 export function UserTable({ users, onEdit, onDelete }: UserTableProps) {

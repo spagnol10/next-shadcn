@@ -40,7 +40,7 @@ export function UserTable({ users, onEdit, onDelete }: UserTableProps) {
           <TableHead>Image</TableHead>
           <TableHead>Name</TableHead>
           <TableHead>Email</TableHead>
-          <TableHead>Role</TableHead>
+          <TableHead>Phone</TableHead>
           <TableHead>Actions</TableHead>
         </TableRow>
       </TableHeader>
@@ -55,7 +55,7 @@ export function UserTable({ users, onEdit, onDelete }: UserTableProps) {
             </TableCell>
             <TableCell>{user.name}</TableCell>
             <TableCell>{user.email}</TableCell>
-            <TableCell>{user.role}</TableCell>
+            <TableCell>{user.phoneNumber}</TableCell>
             <TableCell>
               <div className="flex space-x-2">
                 <Button size="sm" variant="outline" onClick={() => onEdit(user)}>

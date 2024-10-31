@@ -5,7 +5,7 @@ import { UserTable } from "@/components/user/app-userTable";
 import { Plus } from "lucide-react";
 import { UserForm } from "@/components/user/app-userForm";
 import { Button } from "@/components/ui/button";
-import { fetchUsers, createUser, updateUser, deleteUser, User as UserType } from "../../../[axios]/api"; // Importando as funções
+import { fetchUsers, createUser, updateUser, deleteUser, User as UserType } from "../../../[axios]/api"; 
 
 export default function RegisterNewUser() {
     const [users, setUsers] = useState<UserType[]>([]);

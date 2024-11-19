@@ -24,8 +24,8 @@ export default function Login() {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError(""); // Reset error state
-    setLoading(true); // Set loading state
+    setError("");
+    setLoading(true);
 
     try {
       const response = await axios.post('/api/login', { email, password });
@@ -36,7 +36,7 @@ export default function Login() {
       console.error("Login failed:", error);
       setError("Login failed. Please check your credentials and try again.");
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
   };
 

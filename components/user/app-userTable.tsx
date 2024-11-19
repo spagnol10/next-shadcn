@@ -10,20 +10,26 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Pencil, Trash2 } from "lucide-react";
 
-// Define the User type
 interface User {
-  id: number;
+  id: string; 
   name: string;
   email: string;
-  role: string;
-  imageUrl: string;
+  cpfCnpj: string; 
+  gender: 'WOMAN' | 'MAN' | 'OTHER'; 
+  password: string; 
+  phoneNumber: string;
+  imageUrl: string; 
+  isActive: boolean;
+  dateOfBirth: string;
+  createdAt: string;
+  updatedAt: string;
+  role: string; 
 }
 
-// Define the props type for UserTable
 interface UserTableProps {
   users: User[];
   onEdit: (user: User) => void;
-  onDelete: (userId: number) => void;
+  onDelete: (userId: string) => void; // Alterado para string
 }
 
 export function UserTable({ users, onEdit, onDelete }: UserTableProps) {
@@ -34,7 +40,7 @@ export function UserTable({ users, onEdit, onDelete }: UserTableProps) {
           <TableHead>Image</TableHead>
           <TableHead>Name</TableHead>
           <TableHead>Email</TableHead>
-          <TableHead>Role</TableHead>
+          <TableHead>Phone</TableHead>
           <TableHead>Actions</TableHead>
         </TableRow>
       </TableHeader>
@@ -49,7 +55,7 @@ export function UserTable({ users, onEdit, onDelete }: UserTableProps) {
             </TableCell>
             <TableCell>{user.name}</TableCell>
             <TableCell>{user.email}</TableCell>
-            <TableCell>{user.role}</TableCell>
+            <TableCell>{user.phoneNumber}</TableCell>
             <TableCell>
               <div className="flex space-x-2">
                 <Button size="sm" variant="outline" onClick={() => onEdit(user)}>

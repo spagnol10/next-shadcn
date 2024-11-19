@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,13 +9,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Textarea } from "@/components/ui/textarea"
-import { Bell, Lock, User, LogOut } from "lucide-react"
+import { LogOut } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 export default function AccountProfile({
-  name = "Jane Doe",
-  email = "jane.doe@example.com",
+  name = "Josep",
+  email = "josep@example.com",
   avatarUrl = "/placeholder.svg?height=100&width=100"
 }) {
+  const router = useRouter();
   const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(true)
 
   return (
@@ -116,7 +118,7 @@ export default function AccountProfile({
         </Tabs>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button variant="outline" className="w-full sm:w-auto">
+        <Button onClick={() => router.push('../../auth/login')} variant="outline" className="w-full sm:w-auto">
           <LogOut className="mr-2 h-4 w-4" />
           Log out
         </Button>
